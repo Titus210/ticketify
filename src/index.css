@@ -1,13 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply bg-background text-textPrimary font-body overflow-x-hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 0.8em;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 100vw;
+  margin-block: 0.5em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--tw-gradient-stops));
+  background: linear-gradient(rgb(247, 133, 154), rgba(248, 68, 100, 1.0)); /* Custom gradient */
+  border-radius: 100vw;
+}
+
+/* Fallback for scrollbars */
+@supports (scrollbar-color: #ba9bf4 #6967d8) {
+  * {
+    scrollbar-color: #ba9bf4 #6967d8;
+  }
+}
+
+/* Utility classes for additional customization */
+.hover-bg-primary:hover {
+  background-color: theme('colors.primary');
+}
+
+.hover-text-primary:hover {
+  color: theme('colors.primary');
 }
