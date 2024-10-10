@@ -1,7 +1,6 @@
 // src/components/Dashboard.jsx
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 import Sidebar from '../components//Sidebar';
 
 
@@ -14,11 +13,11 @@ import Logout from './pages/Logout';
 const DashBoard = () => {
   return (
     <>
-      <div className="flex w-screen bg-slate-200">
+      <div className="flex w-screen ">
         <div className="flex w-max h-screen sticky top-0">
           <Sidebar />
         </div>
-        <div className="flex-1 overflow-y-auto">
+        <div className="w-12/12 md:w-8/12  flex md:pl-12 overflow-y-auto">
           <Routes>
             <Route path="/tickets" element={<Tickets />} />
             <Route path="/transactions" element={<Transactions />} />
