@@ -25,13 +25,13 @@ const Sidebar = () => {
           </button>
           
           {/* User Info */}
-          <div className="flex flex-col justify-center gap-2 items-center w-full border-b-[1px] border-white">
+          <div className="flex flex-col justify-center gap-2 items-center w-full border-b-[1px] border-white py-7">
             <div className="image-container">
               <img src={userImage} alt="" className='object-cover rounded-full h-32 w-32' />
             </div>
             <div className="contact-info text-center">
               <h2>John Doe</h2>
-              <p>Bangladesh, India</p>
+              <p>Nairobi, Kenya</p>
             </div>
           </div>
 
