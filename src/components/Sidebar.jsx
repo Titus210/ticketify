@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <div className="flex">
       {/* Sidebar Container */}
-      <div className={`fixed md:relative top-0 left-0 bg-primary flex flex-col gap-12 items-center text-white h-screen py-4 md:p-5 ${isOpen ? 'w-64 md:w-72 lg:w-80' : 'w-0'} z-200 transition-width duration-300`}>
+      <div className={`fixed md:relative top-0 left-0 bg-primary flex flex-col gap-12 items-center text-white h-screen py-4 md:p-5 ${isOpen ? 'w-64 ' : 'w-0'} z-200 transition-width duration-300`}>
         {/* Close Button - Show only on mobile view */}
         <button
           onClick={toggleSidebar}
@@ -67,9 +67,8 @@ const Sidebar = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className={`flex-1 transition-margin duration-300 ${isOpen ? 'ml-64  lg:ml-80' : 'ml-0'}`}>
         {/* Toggle Sidebar Button - Show only on mobile view when sidebar is closed */}
+      <div className={``}>
         {!isOpen && (
           <button
             onClick={toggleSidebar}
@@ -78,8 +77,7 @@ const Sidebar = () => {
             <FaBars size={24} />
           </button>
         )}
-      
-      </div>
+            </div>
     </div>
   );
 };
