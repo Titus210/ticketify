@@ -12,73 +12,75 @@ const Sidebar = () => {
   };
 
   return (
-    <>
+    <div className="flex">
       {/* Sidebar Container */}
-      {isOpen && (
-        <div className="fixed top-0 left-0 bg-primary flex flex-col gap-12 items-center text-white h-screen py-4 md:p-5 w-64 md:gap-24 md:w-72 lg:w-80 z-50">
-          {/* Close Button - Show only on mobile view */}
-          <button 
-            onClick={toggleSidebar} 
-            className="absolute top-4 right-4 text-white md:hidden"
-          >
-            <FaTimes size={24} />
-          </button>
-          
-          {/* User Info */}
-          <div className="flex flex-col justify-center gap-2 items-center w-full border-b-[1px] border-white py-7">
-            <div className="image-container">
-              <img src={userImage} alt="" className='object-cover rounded-full h-32 w-32' />
-            </div>
-            <div className="contact-info text-center">
-              <h2>John Doe</h2>
-              <p>Nairobi, Kenya</p>
-            </div>
-          </div>
+      <div className={`fixed md:relative top-0 left-0 bg-primary flex flex-col gap-12 items-center text-white h-screen py-4 md:p-5 ${isOpen ? 'w-64 md:w-72 lg:w-80' : 'w-0'} z-200 transition-width duration-300`}>
+        {/* Close Button - Show only on mobile view */}
+        <button
+          onClick={toggleSidebar}
+          className="absolute top-4 right-4 text-white md:hidden"
+        >
+          <FaTimes size={24} />
+        </button>
 
-          {/* Sidebar Navigation */}
-          <div>
-            <ul className="space-y-4">
-              <li className="text-lg font-semibold mb-5">Menu</li>
-              <li className="hover:bg-gray-800 px-4 py-3 rounded-full">
-                <Link to="/user/dashboard/tickets" className="flex items-center">
-                  <FaTicketAlt className="mr-3" /> Tickets
-                </Link>
-              </li>
-              <li className="hover:bg-gray-800 px-4 py-3 rounded-full">
-                <Link to="/user/dashboard/transactions" className="flex items-center">
-                  <FaMoneyBillAlt className="mr-3" /> Transactions
-                </Link>
-              </li>
-              <li className="hover:bg-gray-800 px-4 py-3 rounded-full">
-                <Link to="/user/dashboard/wallet" className="flex items-center">
-                  <FaWallet className="mr-3" /> Wallet
-                </Link>
-              </li>
-              <li className="hover:bg-gray-800 px-4 py-3 rounded-full">
-                <Link to="/user/dashboard/account" className="flex items-center">
-                  <FaUser className="mr-3" /> Account
-                </Link>
-              </li>
-              <li className="hover:bg-gray-800 px-4 py-3 rounded-full">
-                <Link to="/user/dashboard/logout" className="flex items-center">
-                  <FaSignOutAlt className="mr-3" /> Logout
-                </Link>
-              </li>
-            </ul>
+        {/* User Info */}
+        <div className="flex flex-col justify-center gap-2 items-center w-full border-b-[1px] border-white py-7">
+          <div className="image-container">
+            <img src={userImage} alt="" className='object-cover rounded-full h-32 w-32' />
+          </div>
+          <div className="contact-info text-center">
+            <h2>John Doe</h2>
+            <p>Nairobi, Kenya</p>
           </div>
         </div>
-      )}
 
-      {/* Toggle Sidebar Button - Show only on mobile view when sidebar is closed */}
-      {!isOpen && (
-        <button 
-          onClick={toggleSidebar} 
-          className="text-white fixed top-4 right-4 z-50 md:hidden"
-        >
-          <FaBars size={24} />
-        </button>
-      )}
-    </>
+        {/* Sidebar Navigation */}
+        <div>
+          <ul className="space-y-4">
+            <li className="text-lg font-semibold mb-5">Menu</li>
+            <li className="hover:bg-gray-800 px-4 py-3 rounded-full">
+              <Link to="/user/dashboard/tickets" className="flex items-center">
+                <FaTicketAlt className="mr-3" /> Tickets
+              </Link>
+            </li>
+            <li className="hover:bg-gray-800 px-4 py-3 rounded-full">
+              <Link to="/user/dashboard/transactions" className="flex items-center">
+                <FaMoneyBillAlt className="mr-3" /> Transactions
+              </Link>
+            </li>
+            <li className="hover:bg-gray-800 px-4 py-3 rounded-full">
+              <Link to="/user/dashboard/wallet" className="flex items-center">
+                <FaWallet className="mr-3" /> Wallet
+              </Link>
+            </li>
+            <li className="hover:bg-gray-800 px-4 py-3 rounded-full">
+              <Link to="/user/dashboard/account" className="flex items-center">
+                <FaUser className="mr-3" /> Account
+              </Link>
+            </li>
+            <li className="hover:bg-gray-800 px-4 py-3 rounded-full">
+              <Link to="/user/dashboard/logout" className="flex items-center">
+                <FaSignOutAlt className="mr-3" /> Logout
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className={`flex-1 transition-margin duration-300 ${isOpen ? 'ml-64  lg:ml-80' : 'ml-0'}`}>
+        {/* Toggle Sidebar Button - Show only on mobile view when sidebar is closed */}
+        {!isOpen && (
+          <button
+            onClick={toggleSidebar}
+            className="text-white fixed top-4 right-4 z-50 md:hidden"
+          >
+            <FaBars size={24} />
+          </button>
+        )}
+      
+      </div>
+    </div>
   );
 };
 
