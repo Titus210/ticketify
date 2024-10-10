@@ -2,11 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Global Styles */
 body {
   @apply bg-background text-textPrimary font-body overflow-x-hidden;
+
 }
 
+
+h1, h2, p {
+  margin: 0;
+}
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 0.8em;
@@ -39,3 +50,5 @@ body {
 .hover-text-primary:hover {
   color: theme('colors.primary');
 }
+
+
